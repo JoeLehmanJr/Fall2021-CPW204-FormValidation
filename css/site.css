@@ -1,3 +1,7 @@
+h1{
+    text-align:center;
+}
+
 form span{
     color:red;
 }
@@ -9,7 +13,7 @@ input[type="text"]{
 form label{
     display: inline-block;
     text-align: right;
-    width: 13%;
+    width: 50%;
     margin-right:.25em;
 }
 
@@ -18,12 +22,17 @@ form button{
 }
 
 @media only screen and (max-width: 475px) {
+    h1{
+        text-align:left;
+    }
+
     form label{
 
         text-align: left;
         width: 100%;
 
     }
+
     form button{
         margin-left: 0%;
     }
