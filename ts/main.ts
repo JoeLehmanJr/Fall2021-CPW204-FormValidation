@@ -5,12 +5,45 @@ window.onload = function() {
     formBtn.onclick = main;
 }
 
+/**
+ * Change the message heading to a random color when it is clicked.
+ */
+function changeHeading() {
+    let heading = <HTMLElement>this;
+    let randomColor = randomColorGenerator();
+    heading.style.color = randomColor;
+
+}
+
+/**
+ * generate three random numbers and concatenate in to rgb code string
+ * @returns the rgb color string
+ */
+function randomColorGenerator():string {
+    let red = Math.floor(Math.random() * 255 + 1);
+    let green = Math.floor(Math.random() * 255 + 1);
+    let blue = Math.floor(Math.random() * 255 + 1);
+    let color = "rgb(" + red + "," + green + "," + blue + ")"
+    return color;
+}
+
 function main():void {
+let msgHeading = document.createElement("h2");
+    msgHeading.innerHTML ="Processing form";
+    msgHeading.setAttribute("class", "message");
+    msgHeading.onclick = changeHeading;
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement("afterend", msgHeading);
+
+    setTimeout(function() {
+        msgHeading.remove();
+    }, 20000);
+
     resetErrorsMessage();
     isTextPresent("first-name","First name is required");
     isTextPresent("last-name","Last name is required");
 
-    // Validate Date
     checkValidDate();
 }
 
